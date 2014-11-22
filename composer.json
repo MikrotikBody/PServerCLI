@@ -1,0 +1,27 @@
+{
+    "name": "kokspflanze/p-server-cli",
+    "description": "Zendframework 2 Module for pServer [CLI]",
+    "keywords": [
+        "framework",
+        "zf2",
+		"game backend",
+		"p-server-cli"
+    ],
+    "homepage": "https://github.com/kokspflanze/PServerCLI",
+	"autoload": {
+		"psr-0": {
+			"PServerCLI\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Oliver"
+
+		}
+	],
+    "require": {
+        "php": ">=5.4",
+		"zendframework/zendframework": "2.*",
+		"kokspflanze/p-server-cms": "dev-master"
+    }
+}
