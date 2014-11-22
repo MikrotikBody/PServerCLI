@@ -1,2 +1,2 @@
 <?php
-require_once __DIR__ . '/src/PServerAdmin/Module.php';
+require_once __DIR__ . '/src/PServerCLI/Module.php';
