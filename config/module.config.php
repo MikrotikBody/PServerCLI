@@ -9,9 +9,9 @@ return [
 	'console' => [
 		'router' => [
 			'routes' => [
-				'get-happen-use' => [
+				'player-history' => [
 					'options' => [
-						'route' => 'player-history [--player]',
+						'route' => 'player-history [<player>]',
 						'defaults' => [
 							'__NAMESPACE__' => 'PServerCLI\Controller',
 							'controller' => 'PlayerHistory',
