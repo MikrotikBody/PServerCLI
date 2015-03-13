@@ -6,18 +6,24 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
 
 class Module implements ServiceProviderInterface {
 
+    /**
+     * @return mixed
+     */
 	public function getConfig() {
 		return include __DIR__ . '/../../config/module.config.php';
 	}
 
+    /**
+     * @return array
+     */
 	public function getAutoloaderConfig() {
-		return array(
-			'Zend\Loader\StandardAutoloader' => array(
-				'namespaces' => array(
+		return [
+			'Zend\Loader\StandardAutoloader' => [
+				'namespaces' => [
 					__NAMESPACE__ => __DIR__ . '/../../src/' . __NAMESPACE__,
-				),
-			),
-		);
+				],
+			],
+		];
 	}
 
 	/**
@@ -27,8 +33,6 @@ class Module implements ServiceProviderInterface {
 	 * @return array|\Zend\ServiceManager\Config
 	 */
 	public function getServiceConfig() {
-		return array(
-
-		);
+		return [];
 	}
 }
