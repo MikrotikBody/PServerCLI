@@ -2,13 +2,14 @@
 
 namespace PServerCLI\Controller;
 
+use PServerCMS\Helper\HelperService;
+use PServerCMS\Helper\HelperServiceLocator;
 use Zend\Mvc\Controller\AbstractActionController,
     Zend\Console\Request as ConsoleRequest;
 
 class CodeCleanUpController extends AbstractActionController
 {
-    /** @var  \PServerCMS\Service\UserCodes */
-    protected $userCodeService;
+    use HelperServiceLocator, HelperService;
 
     public function indexAction()
     {
@@ -21,18 +22,6 @@ class CodeCleanUpController extends AbstractActionController
 
         $limit = $request->getParam('limit', 100);
 
-        $this->getUserCodeService()->cleanExpireCodes($limit);
-    }
-
-    /**
-     * @return \PServerCMS\Service\UserCodes
-     */
-    protected function getUserCodeService()
-    {
-        if (!$this->userCodeService) {
-            $this->userCodeService = $this->getServiceLocator()->get('pserver_usercodes_service');
-        }
-
-        return $this->userCodeService;
+        $this->getUserCodesService()->cleanExpireCodes($limit);
     }
 }

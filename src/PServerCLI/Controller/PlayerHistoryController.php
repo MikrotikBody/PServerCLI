@@ -2,13 +2,14 @@
 
 namespace PServerCLI\Controller;
 
+use PServerCMS\Helper\HelperService;
+use PServerCMS\Helper\HelperServiceLocator;
 use Zend\Mvc\Controller\AbstractActionController,
     Zend\Console\Request as ConsoleRequest;
 
 class PlayerHistoryController extends AbstractActionController
 {
-	/** @var  \PServerCMS\Service\PlayerHistory */
-	protected $playerHistoryService;
+    use HelperServiceLocator, HelperService;
 
 	public function indexAction()
     {
@@ -24,15 +25,4 @@ class PlayerHistoryController extends AbstractActionController
 		$this->getPlayerHistory()->setCurrentPlayer($player);
 	}
 
-	/**
-	 * @return \PServerCMS\Service\PlayerHistory
-	 */
-	protected function getPlayerHistory()
-    {
-		if (!$this->playerHistoryService) {
-			$this->playerHistoryService = $this->getServiceLocator()->get('pserver_playerhistory_service');
-		}
-
-		return $this->playerHistoryService;
-	}
-} 
+}
